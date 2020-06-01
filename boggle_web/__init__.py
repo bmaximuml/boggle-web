@@ -26,7 +26,6 @@ def board():
     from .boggle.src.boggle import boggle_web
 
     seed = request.args.get('seed')
-    print(seed)
     b = boggle_web(seed)
     split_board = [b[:4], b[4:8], b[8:12], b[12:]]
 
