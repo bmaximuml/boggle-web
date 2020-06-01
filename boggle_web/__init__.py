@@ -1,15 +1,11 @@
 from datetime import datetime
-from .exceptions import EnvironmentUnsetError
 from flask import Flask, render_template, request
 from os import environ
 
 
 def create_application():
     app = Flask(__name__)
-    try:
-        app.secret_key = environ['FLASK_SECRET_KEY']
-    except KeyError:
-        raise EnvironmentUnsetError('FLASK_SECRET_KEY')
+    app.secret_key = environ['FLASK_SECRET_KEY']
 
     return app
 

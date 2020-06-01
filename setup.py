@@ -1,14 +1,6 @@
 from os import environ
 from setuptools import setup, find_packages
 
-from boggle_web.exceptions import EnvironmentUnsetError
-
-required_env_vars = [
-    'FLASK_SECRET_KEY'
-]
-for var in required_env_vars:
-    if var not in environ:
-        raise EnvironmentUnsetError(var)
 
 setup(
     name='Letter Shuffle Game',
