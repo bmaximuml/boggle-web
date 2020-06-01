@@ -1,7 +1,7 @@
 from os import environ
 from setuptools import setup, find_packages
 
-from exceptions import EnvironmentUnsetError
+from boggle_web.exceptions import EnvironmentUnsetError
 
 required_env_vars = [
     'WFB_PROJECT_NAME',
