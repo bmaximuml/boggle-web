@@ -1,23 +1,19 @@
 from datetime import datetime
-from .exceptions import EnvironmentUnsetError
 from flask import Flask, render_template, request
 from os import environ
 
 
 def create_application():
-    app = Flask(__name__)
-    try:
-        app.secret_key = environ['FLASK_SECRET_KEY']
-    except KeyError:
-        raise EnvironmentUnsetError('FLASK_SECRET_KEY')
+    application = Flask(__name__)
+    application.secret_key = environ['FLASK_SECRET_KEY']
 
-    return app
+    return application
 
 
-application = create_application()
+app = create_application()
 
 
-@application.route('/', methods=['GET'])
+@app.route('/', methods=['GET'])
 def home():
     return render_template(
         'index.html',
@@ -25,12 +21,11 @@ def home():
     )
 
 
-@application.route('/board', methods=['GET'])
+@app.route('/board', methods=['GET'])
 def board():
     from .boggle.src.boggle import boggle_web
 
     seed = request.args.get('seed')
-    print(seed)
     b = boggle_web(seed)
     split_board = [b[:4], b[4:8], b[8:12], b[12:]]
 
@@ -43,5 +38,5 @@ def board():
 
 
 if __name__ == '__main__':
-    application.debug = True
-    application.run()
+    app.debug = True
+    app.run()
