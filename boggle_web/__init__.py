@@ -16,7 +16,7 @@ app = create_application()
 
 @app.route('/', methods=['GET'])
 def home():
-    from .boggle.src.boggle import boggle_web
+    from boggle_web.boggle.src.boggle import boggle_web
 
     try:
         seed = str(request.args['seed']).lower().strip()
