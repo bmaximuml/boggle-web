@@ -1,13 +1,31 @@
 {% extends 'sections.html' %}
 
 {% block section0_content %}
+<div class="box is-fullwidth">
+    {% if seed is not none %}
+        <h2 class="subtitle is-3 has-text-centered has-text-dark">Board: '{{ seed }}'</h2>
+    {% endif %}
+
+    <table class="table is-striped is-bordered is-centered is-unselectable is-size-1 has-text-centered is-margin-auto">
+        {% for row in board %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{ cell }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
+
+{% block section1_content %}
     <div class="columns">
         <div class="column">
             <div class="box">
-            <form action="/board" method="get">
+            <form action="/" method="get">
                 <div class="field">
                     <div class="control">
-                        <input type="submit" class="button is-link is-large is-fullwidth" value="Random Board"/>
+                        <a href="/"><button type="button" class="button is-link is-large is-fullwidth">Random Board</button></a>
                     </div>
                 </div>
             </form>
@@ -20,10 +38,10 @@
                 <p>Any word will work as a key, a key will always produce the same board.</p>
                 <p>Play with friends remotely by both entering the same key</p>
             </div>
-            <form action="/board" method="get">
+            <form action="/" method="get">
                 <div class="field">
                     <div class="control">
-                        <input class="input" type="text" name="seed" placeholder="Enter a key">
+                        <input class="input" type="text" name="seed" placeholder="Enter a key" value="{{ seed if seed is not none }}">
                     </div>
                 </div>
                 <div class="field">
