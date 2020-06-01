@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        Letter Shuffle Game
+    </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bulma/css/bulma.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sass_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='assets/favicon.ico') }}">
+</head>
+<body class="has-background-dark">
+<section>
+    {% block content %}{% endblock %}
+</section>
+{#<footer class="footer hero is-paddingless {% block footer_colour %}is-dark{% endblock %}">#}
+{#    <div class="content has-text-centered hero-body">#}
+{#        <p>#}
+{#            <strong class="has-text-light">{{ title }}</strong> &#169; {{ year }}#}
+{#        </p>#}
+{#    </div>#}
+{#</footer>#}
+</body>
+</html>
+

@@ -1,0 +1,3 @@
+[submodule "boggle_web/boggle"]
+	path = boggle_web/boggle
+	url = git@github.com:benjilev08/boggle.git

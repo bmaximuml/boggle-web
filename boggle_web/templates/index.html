@@ -1,0 +1,40 @@
+{% extends 'sections.html' %}
+
+{% block section0_content %}
+    <div class="columns">
+        <div class="column">
+            <div class="box">
+            <form action="/board" method="get">
+                <div class="field">
+                    <div class="control">
+                        <input type="submit" class="button is-link is-large is-fullwidth" value="Random Board"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="column">
+        <div class="box">
+            <div class="notification is-primary">
+                <p>Enter a key here to load a specific board.</p>
+                <p>Any word will work as a key, a key will always produce the same board.</p>
+                <p>Play with friends remotely by both entering the same key</p>
+            </div>
+            <form action="/board" method="get">
+                <div class="field">
+                    <div class="control">
+                        <input class="input" type="text" name="seed" placeholder="Enter a key">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input type="submit" class="button is-link  is-large is-fullwidth" value="Specific Board"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+
+{% endblock %}
