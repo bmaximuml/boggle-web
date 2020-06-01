@@ -28,10 +28,7 @@ setup(
     zip_safe=True,
     install_requires=[
         'datetime',
-        'Flask',
-        'Flask-SQLAlchemy',
-        'mysql-connector-python',
-        'WTForms'
+        'Flask'
     ],
     **optional_setup
 )
