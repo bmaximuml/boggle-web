@@ -4,16 +4,16 @@ from os import environ
 
 
 def create_application():
-    app = Flask(__name__)
-    app.secret_key = environ['FLASK_SECRET_KEY']
+    application = Flask(__name__)
+    application.secret_key = environ['FLASK_SECRET_KEY']
 
-    return app
-
-
-application = create_application()
+    return application
 
 
-@application.route('/', methods=['GET'])
+app = create_application()
+
+
+@app.route('/', methods=['GET'])
 def home():
     return render_template(
         'index.html',
@@ -21,7 +21,7 @@ def home():
     )
 
 
-@application.route('/board', methods=['GET'])
+@app.route('/board', methods=['GET'])
 def board():
     from .boggle.src.boggle import boggle_web
 
@@ -38,5 +38,5 @@ def board():
 
 
 if __name__ == '__main__':
-    application.debug = True
-    application.run()
+    app.debug = True
+    app.run()
